@@ -67,7 +67,7 @@ export default function UpdateModal(props: any) {
     const UpdateHandler = async(newname: any, newfile: any) => { 
         setDisable(true)
         try {
-            await fetch('http://localhost:8000/api/image/update', {
+            await fetch('https://image-uploder.herokuapp.com/api/image/update', {
                 method: 'POST',
                 body: JSON.stringify({ 
                     data: { 

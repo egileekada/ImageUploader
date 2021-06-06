@@ -42,7 +42,7 @@ export default function Files() {
         // if(picName === ''){
 
             // setData()
-            fetch('http://localhost:8000/api/view_image', {
+            fetch('https://image-uploder.herokuapp.com/api/view_image', {
                 method: 'POST', // or 'PUT'
                 headers: {
                     'Content-Type': 'application/json',

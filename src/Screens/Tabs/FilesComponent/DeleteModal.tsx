@@ -28,7 +28,7 @@ export default function DeleteModal(props: any) {
     const DeleteHandler = async() => { 
         setDisable(true)
         try {
-            await fetch('http://localhost:8000/api/image/delete', {
+            await fetch('https://image-uploder.herokuapp.com/api/image/delete', {
                 method: 'POST',
                 body: JSON.stringify({ 
                     data: { 
