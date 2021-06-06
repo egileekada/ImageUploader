@@ -1,7 +1,7 @@
 import React from 'react';
 import ViewPhotos from './FilesComponent/ViewPhotos';
 import { IoMdSearch } from "react-icons/io"; 
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import Loader from './FilesComponent/Loader';
 import DeleteModal from './FilesComponent/DeleteModal';
 import UpdateModal from './FilesComponent/UpdateModal';
@@ -17,22 +17,21 @@ export default function Files() {
     })  
     const [picName, setPicName] = React.useState(localStorage.getItem('name')+'')
 
-    const history = useHistory()
+    // const history = useHistory()
 
-    console.log(data)
+    // console.log(data)
 
-    const ClickHandler =()=> {
-        localStorage.setItem('name', picName);
-        history.go(0)
-    }
+    // const ClickHandler =()=> {
+    //     localStorage.setItem('name', picName);
+    //     history.go(0)
+    // }
 
     const ChangeHandler =(e: any)=> {
 
         let name = e.target.value
 
         if(name === ''){ 
-            localStorage.setItem('name', '');
-            history.go(0) 
+            localStorage.setItem('name', ''); 
         } 
         setPicName(name)
     }
@@ -73,7 +72,7 @@ export default function Files() {
                 </div>
                 <div className='w-full flex flex-1' />
                 <div className='relative' >
-                    <IoMdSearch onClick={()=> ClickHandler()} size='30px' className='absolute top-2 z-10 right-2 cursor-pointer' /> 
+                    <IoMdSearch size='30px' className='absolute top-2 z-10 right-2 cursor-pointer' /> 
                     <input value={picName} onChange={(e)=> ChangeHandler(e)} style={{backgroundColor: '#F4F8FF'}} className=' w-64 text-xs p-4 rounded-md ' placeholder='Search For A Logo' /> 
                 </div> 
             </div> 

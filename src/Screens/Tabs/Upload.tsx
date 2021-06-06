@@ -68,7 +68,7 @@ export default function Upload() {
 
     const uploadImage = async (base64EncodedImage: any, filename: any) => {
         try {
-            await fetch('http://localhost:8000/api/image/upload', {
+            await fetch('https://image-uploder.herokuapp.com/api/image/upload', {
                 method: 'POST',
                 body: JSON.stringify({ 
                     data: {
