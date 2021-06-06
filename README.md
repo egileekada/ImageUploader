@@ -1,3 +1,3 @@
-#MIDLMAN ADMIN PANEL
-### CREATED BY DANIEL EMMANUEL
+#ImageUploader
+### CREATED BY Ekada Egileonisogfien
 # ImageUploader
