@@ -1,11 +1,21 @@
 import React, { useState } from 'react'; 
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Files from './Tabs/Files'
 import Upload from './Tabs/Upload'
 
 export default function Main() {
 
-    const [tab, setTab] = useState('files');    
+    const [tab, setTab] = useState('files');   
+    const history = useHistory()
+
+    const FilesTab =()=>{
+        history.go(0);
+        setTab('files');
+    }
+
+    React.useEffect(() => { 
+        localStorage.setItem('name', '')
+    }, []);
 
     return ( 
         <div className='w-full h-full' > 
@@ -17,7 +27,7 @@ export default function Main() {
                         <p className='w-full text-center'>UPLOAD</p>
                         <p className={tab === 'upload' ? 'w-full bg-white h-1 mt-2 rounded-xl': 'w-full h-1 mt-2 rounded-xl bg-transparent'}></p>
                     </li>
-                    <li onClick={()=> setTab('files')} className="cursor-pointer w-full text-sm text-white mx-4">
+                    <li onClick={()=> FilesTab()} className="cursor-pointer w-full text-sm text-white mx-4">
                         <p className='w-full text-center'>FILES</p>
                         <p className={tab === 'files' ? 'w-full bg-white h-1 mt-2 rounded-xl': 'w-full h-1 mt-2 rounded-xl bg-transparent'}></p>
                     </li> 

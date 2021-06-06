@@ -1,10 +1,10 @@
 import React from 'react';
 import { IoIosClose } from 'react-icons/io';
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 export default function UpdateModal(props: any) {
 
-    // const history = useHistory();
+    const history = useHistory();
     const [disable, setDisable] = React.useState(false)
     const [value, setValue] = React.useState({
         name: '',
@@ -82,7 +82,7 @@ export default function UpdateModal(props: any) {
             console.error(err); 
         } 
         props.close(false);
-        // history.go(0);
+        history.go(0);
 
     }
 
