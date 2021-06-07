@@ -24,7 +24,7 @@ export default function ViewPhotos(source: any, setValue: any, deleteModal: any,
         updateModal(true)
     }
 
-    return source.slice(0,20).map((photo: any, index: any) => { 
+    return source.map((photo: any, index: any) => { 
         return(  
             <div key={index} className='w-64 my-4 h-auto rounded-md'>
                 <div  style={{backgroundColor: '#F4F8FF'}} className='w-full h-40 relative rounded-md' >
