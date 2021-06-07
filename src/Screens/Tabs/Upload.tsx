@@ -9,7 +9,7 @@ export default function Upload() {
     const [ showModal, setShowModal ] = React.useState(false) 
 
     const handleImage = (e:any) => {   
-        if(imageFiles.length <= 15){
+        if(imageFiles.length <= 20){
             const files = e.target.files
 
             for (var i = 0; i < files.length; i++) {
@@ -29,38 +29,34 @@ export default function Upload() {
                 );
             }
         } else {
-            alert('Cant Add files')
+            alert('You Can not add any more files')
         }
     };
 
+    console.log(fileName)
+
     const handleImageChange = (e:any) => {  
  
-        const files = e.target.files 
 
-        for (var i = 0; i < files.length; i++) { 
-            let value = files[i].name+''   
-            const filename = value.split('.').slice(0, -1).join('.'); 
-            fileName.push(filename) 
-        } 
+		if (Array.from(e.target.files).length <= 20) {
+            const files = e.target.files 
 
-		if (Array.from(e.target.files).length <= 15) {
+            for (var i = 0; i < files.length; i++) { 
+                let value = files[i].name+''   
+                const filename = value.split('.').slice(0, -1).join('.'); 
+                fileName.push(filename) 
+            } 
+
 			const filesArray: any = Array.from(e.target.files).map((file) => URL.createObjectURL(file)); 
             const fileData = Array.from(e.target.files).map((file) => file);  
             
             setImageFiles((prevImages: any) => prevImages.concat(fileData));
 
-            imageFiles.map(item => {
-                let value = item.name
-                const clone = [...fileName, value]
-                return setFileName(clone)
-
-            })
-
 			setSelectedFiles((prevImages: any) => prevImages.concat(filesArray));
 			Array.from(e.target.files).map(
 				(file : any) => URL.revokeObjectURL(file) // avoid memory leak
 			); 
-        } else{
+        } else{ 
             alert('Limit reached')
         }
 

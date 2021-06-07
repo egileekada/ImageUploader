@@ -49,17 +49,16 @@ export default function Files() {
                 body: JSON.stringify({ 
                     data: picName 
                 }),
-                })
-                .then(response => response.json())
-                .then(data => {
-                    setData(data) 
-                    console.log(data)
-                })
-                .catch((error) => {
+            })
+            .then(response => response.json())
+            .then(data => {
+                setData(data) 
+                console.log(data)
+            })
+            .catch((error) => {
                 console.error('Error:', error);
-                });
-        // }
-    
+            }); 
+
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
     }, [picName]);
 
